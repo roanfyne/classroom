@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Proxy</title>
+</head>
+<body>
+    <h1>Web Proxy</h1>
+    <form id="proxy-form" target="_blank">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" placeholder="http://example.com" required>
+        <button type="submit">Fetch</button>
+    </form>
+
+    <script>
+        document.getElementById('proxy-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const url = document.getElementById('url').value;
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/' + encodeURIComponent(url);
+            window.open(proxyUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
